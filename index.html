@@ -1,0 +1,1294 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Syntek Portal</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css?h=004200673fb975e34925325a29f032eb">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/assets/fonts/fontawesome5-overrides.min.css?h=18313f04cea0e078412a028c5361bd4e">
+  <link rel="stylesheet" href="/assets/css/styles.min.css?h=ae5929db2e9ab701d8fd3dc98b064d6e">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+</head>
+<body>
+    
+  <div id="login_div">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-9 col-lg-12 col-xl-10">
+                <div class="card shadow-lg o-hidden border-0 my-5">
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <div class="col">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h4 class="text-dark mb-4">Welcome to Syntek Portal</h4>
+                                    </div>
+                                    <form class="user">
+                                        <div class="form-group"><input class="form-control form-control-user" type="email" id="email_field" aria-describedby="emailHelp" placeholder="Enter Email Address..." name="email"></div>
+                                        <div class="form-group"><input class="form-control form-control-user" type="password" id="password_field" placeholder="Password" name="password"></div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <div class="form-check"><input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1"><label class="form-check-label custom-control-label" for="formCheck-1">Remember Me</label></div>
+                                            </div>
+                                        </div><a class="btn btn-primary btn-block text-white btn-user" role="button" onclick="login()">Login</a>
+                                        <hr>
+                                        <hr>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+  </div>
+
+  <div id="user_div">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+            <div id="menubar" class="container-fluid d-flex flex-column p-0" >
+                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <div class="sidebar-brand-icon rotate-n-15"></div>
+                    <div class="sidebar-brand-text mx-3"><span class="text-center">Syntek portal</span></div>
+                </a>
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" onclick="dashboard_page()" ><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" onclick="employeeinformation_page();buildTable1()" ><i class="fas fa-table"></i><span>Employee Information</span></a>
+                      <a class="nav-link" onclick="attendance_page();buildtableattendance();buildtabledashboardattendance()"><i class="fas fa-table" onclick="return menuclick('3')" ></i><span>Attendance</span></a>
+                      <a class="nav-link" onclick="timeoff_page();buildtabletimeoff();buildtabledashboardtimeoff()"><i class="fas fa-table" onclick="return menuclick('4')" ></i><span>Time Off</span></a>
+                        <a class="nav-link" onclick="overtime_page();buildtableovertime();buildtabledashboardovertime()"><i class="fas fa-table" onclick="return menuclick('5')" ></i><span>Overtime</span></a>
+                    </li>
+                </ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                        <ul class="nav navbar-nav flex-nowrap ml-auto">
+                            <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-search"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in" role="menu" aria-labelledby="searchDropdown">
+                                    <form class="form-inline mr-auto navbar-search w-100">
+                                        <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Search for ...">
+                                            <div class="input-group-append"><button class="btn btn-primary py-0" type="button"><i class="fas fa-search"></i></button></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown no-arrow" role="presentation">
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span id="user_para"class="d-none d-lg-inline mr-2 text-gray-600 small"></span><img id="pasfoto" class="border rounded-circle img-profile" ></a>
+                                    <div
+                                        class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"><a class="dropdown-item" role="presentation" onclick="profile_page()" return='6'><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
+                                        <a
+                                            class="dropdown-item" role="presentation" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a>
+                                            <div class="dropdown-divider"></div><a class="dropdown-item" role="presentation" onclick="logout()"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a></div>
+                    </div>
+                    </li>
+                    </ul>
+            </div>
+            </nav>
+
+            <div>
+              <div id="dashboard" class="container-fluid" style="display:none">
+                  <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                      <h3 class="text-dark mb-0"><span id="user_para_dashboard"></span></h3>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-6 col-xl-3 mb-4">
+                          <div class="card shadow border-left-primary py-2">
+                              <div class="card-body">
+                                  <div class="row align-items-center no-gutters">
+                                      <div class="col mr-2">
+                                          <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span>Employment status</span></div>
+                                          <div class="text-dark font-weight-bold h5 mb-0"></div>
+                                      </div>
+                                  </div>
+                                  <div><canvas data-bs-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Permanent&quot;,&quot;Contract&quot;,&quot;Probation&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Employment Status&quot;,&quot;backgroundColor&quot;:[&quot;#4e73df&quot;,&quot;#ff0000&quot;,&quot;#ffe500&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:[&quot;25&quot;,&quot;25&quot;,&quot;20&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:true,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{}}}"></canvas></div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-6 col-xl-3 mb-4">
+                          <div class="card shadow border-left-success py-2">
+                              <div class="card-body">
+                                  <div class="row align-items-center no-gutters">
+                                      <div class="col mr-2">
+                                          <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span>length of service</span></div>
+                                          <div class="text-dark font-weight-bold h5 mb-0"></div>
+                                      </div>
+                                  </div>
+                                  <div><canvas data-bs-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;>3th&quot;,&quot;1-2 th&quot;,&quot;<1th&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Employment Status&quot;,&quot;backgroundColor&quot;:[&quot;#4e73df&quot;,&quot;#ff0000&quot;,&quot;#ffe500&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:[&quot;25&quot;,&quot;25&quot;,&quot;20&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:true,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{}}}"></canvas></div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-6 col-xl-3 mb-4">
+                          <div class="card shadow border-left-info py-2">
+                              <div class="card-body">
+                                  <div class="row align-items-center no-gutters">
+                                      <div class="col mr-2">
+                                          <div class="text-uppercase text-info font-weight-bold text-xs mb-1"><span>job level</span></div>
+                                          <div class="row no-gutters align-items-center">
+                                              <div class="col-auto">
+                                                  <div class="text-dark font-weight-bold h5 mb-0 mr-3"></div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div><canvas data-bs-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;CEO&quot;,&quot;Manager&quot;,&quot;Staff&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Employment Status&quot;,&quot;backgroundColor&quot;:[&quot;#4e73df&quot;,&quot;#ff0000&quot;,&quot;#ffe500&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:[&quot;25&quot;,&quot;25&quot;,&quot;20&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:true,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{}}}"></canvas></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- Start: Chart -->
+                  <div class="row">
+                      <div class="col-lg-7 col-xl-8">
+                          <div class="card shadow mb-4">
+                              <div class="card-header d-flex justify-content-between align-items-center">
+                                  <h6 class="text-primary font-weight-bold m-0">Jumlah Karyawan</h6>
+                                  <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
+                                      <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in"
+                                          role="menu">
+                                          <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" role="presentation" href="#">&nbsp;Action</a><a class="dropdown-item" role="presentation" href="#">&nbsp;Another action</a>
+                                          <div class="dropdown-divider"></div><a class="dropdown-item" role="presentation" href="#">&nbsp;Something else here</a></div>
+                                  </div>
+                              </div>
+                              <div class="card-body">
+                                  <div class="chart-area"><canvas data-bs-chart="{&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Jan&quot;,&quot;Feb&quot;,&quot;Mar&quot;,&quot;Apr&quot;,&quot;May&quot;,&quot;Jun&quot;,&quot;Jul&quot;,&quot;Aug&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Jumlah Karyawan&quot;,&quot;backgroundColor&quot;:&quot;#0029ff&quot;,&quot;borderColor&quot;:&quot;rgb(255,0,0)&quot;,&quot;data&quot;:[&quot;53&quot;,&quot;50&quot;,&quot;60&quot;,&quot;41&quot;,&quot;52&quot;,&quot;43&quot;,&quot;63&quot;,&quot;44&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{},&quot;scales&quot;:{&quot;xAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;],&quot;drawOnChartArea&quot;:false},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;beginAtZero&quot;:true,&quot;padding&quot;:20}}],&quot;yAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;]},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;beginAtZero&quot;:true,&quot;padding&quot;:20}}]}}}"></canvas></div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-lg-5 col-xl-4">
+                          <div class="card shadow mb-4">
+                              <div class="card-header d-flex justify-content-between align-items-center">
+                                  <h6 class="text-primary font-weight-bold m-0">Gender Diversity</h6>
+                                  <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
+                                      <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in"
+                                          role="menu">
+                                          <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" role="presentation" href="#">&nbsp;Action</a><a class="dropdown-item" role="presentation" href="#">&nbsp;Another action</a>
+                                          <div class="dropdown-divider"></div><a class="dropdown-item" role="presentation" href="#">&nbsp;Something else here</a></div>
+                                  </div>
+                              </div>
+                              <div class="card-body">
+                                  <div class="chart-area"><canvas data-bs-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Laki-Laki&quot;,&quot;Perempuan&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Gender Diversity&quot;,&quot;backgroundColor&quot;:[&quot;#00ff75&quot;,&quot;#ff0000&quot;],&quot;borderColor&quot;:[&quot;rgba(0,0,0,0.1)&quot;,&quot;rgba(0,0,0,0.1)&quot;],&quot;data&quot;:[&quot;43&quot;,&quot;32&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{}}}"></canvas></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- End: Chart -->
+                  <div class="row">
+                      <div class="col">
+                          <div class="row">
+                              <div class="col-lg-6 mb-4">
+                                  <div class="card text-white bg-secondary shadow"></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div id="employeeinformation" class="container-fluid" style="display:none">
+                  <h3 class="text-dark mb-4">Employee Information</h3>
+                  <div class="card shadow">
+                      <div class="card-header py-3">
+                          <div class="row">
+                              
+                              <div class="col offset-xl-0" style="height: 40px;"><button class="btn btn-primary" type="button" onclick="registernewemployee_page()">Register New Employee</button></div>
+                            
+                          </div>
+                      </div>
+                      <div class="card-body">
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+    th{ 
+        cursor: pointer;
+        color:#fff;
+            }
+</style>
+
+
+<div class="row">
+	<div class="col">
+    	<div class="card card-body">
+        <div class="form-group"><label for="first_name"><strong>Search By</strong><br><form class="form-inline">
+            <div class="form-group">
+              <label ></label>
+               <select  class="form-control" id="SEARCHBY">
+                   <option>EMPLOYEENAME</option>
+                   <option>DIVISI</option>
+                   <option>POSITION</option>
+                   <option>FUNGSI</option>
+                   <option>LEVEL</option>
+                   <option>JURUSAN</option>
+                   <option>TEMPATLAHIR</option>
+                   <option>JENIS_KELAMIN</option>
+                </select>
+            </div>
+          </form></label>
+                                                          <div class="form-row">
+                                                              <div class="col">
+                                                                  <!-- Start: Bootstrap 4's Custom Radios & Checkboxes -->
+                                                                  <div>
+                                                                      <fieldset></fieldset>
+                                                                  </div>
+                                                                  <!-- End: Bootstrap 4's Custom Radios & Checkboxes -->
+                                                              </div>
+                                                              <div class="col">
+                                                                  <!-- Start: Bootstrap 4's Custom Radios & Checkboxes -->
+                                                                  <div>
+                                                                      <fieldset></fieldset>
+                                                                  </div>
+                                                                  <!-- End: Bootstrap 4's Custom Radios & Checkboxes -->
+                                                              </div>
+                                                          </div>
+                                                      </div>
+            <input id="search-input" class="form-control" type="text"style="width: 150px;">
+
+         </div>
+     </div>
+     <div class="col">
+
+     </div>
+</div>
+<div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+<table class="table table-striped">
+    <tr  class="bg-info">
+<th  data-colname="NO" data-order="desc">NO</th>
+<th  data-colname="SN" data-order="desc">SN</th>
+<th  data-colname="EMPLOYEE_NAME" data-order="desc">EMPLOYEE NAME</th>
+<th  data-colname="DIVISI" data-order="desc">DIVISI</th>
+<th  data-colname="POSITION" data-order="desc">POSITION</th>
+<th  data-colname="FUNGSI" data-order="desc">FUNGSI</th>
+<th  data-colname="LEVEL" data-order="desc">LEVEL</th>
+<th  data-colname="NAMA_UNIVERSITAS_TERAKHIR" data-order="desc">Tempat Lahir</th>
+<th  data-colname="JURUSAN" data-order="desc">JURUSAN</th>
+<th  data-colname="LEVEL_" data-order="desc">Alamat</th>
+<th  data-colname="TIER" data-order="desc">No HP</th>
+<th  data-colname="JOIN_DATE" data-order="desc">E-mail</th>
+
+    </tr>
+    <tbody id="myTable">
+        
+    </tbody>
+</table>
+</div>
+                          <div class="row">
+                              <div class="col-md-6 align-self-center">
+                                    </div>
+                              <div class="col-md-6">
+                                  <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
+                                      <ul class="pagination">
+                                          <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                                          <li class="page-item" onclick="buildTable1()"><a class="page-link" href="#" >1</a></li>
+                                          <li class="page-item" onclick="buildTable2()"><a class="page-link" href="#" >2</a></li>
+                                          <li class="page-item" onclick="buildTable3()"><a class="page-link" href="#" >3</a></li>
+                                          <li class="page-item" onclick="buildTable4()"><a class="page-link" href="#" >4</a></li>
+                                          <li class="page-item" onclick="buildTable5()"><a class="page-link" href="#" >5</a></li>
+                                          <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                                      </ul>
+                                  </nav>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div id="attendance" class="container-fluid" style="display:none">
+                  <h3 class="text-dark mb-4">Attendance</h3>
+                  <div class="card shadow">
+                      <div class="card-header py-3">
+                          <div class="row">
+                              <div class="col" style="height: 40px;">
+                                  <!-- Start: AXY Modal Demo Button -->
+                                  <div>
+                                      <!-- Start: Modal Button --><a class="btn btn-primary btn-sm" role="button" data-toggle="modal" href="#myModala">Request Attendance</a>
+                                      <!-- End: Modal Button -->
+                                      <div class="modal" role="dialog" tabindex="-1" id="myModala">
+                                          <div class="modal-dialog" role="document">
+                                              <div class="modal-content">
+                                                  <div class="modal-header">
+                                                      <h4>Request Attendance</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                                                  <div class="modal-body">
+                                                      <div class="row">
+                                                          <div class="col"><input class="form-control" type="text" value="Effective Date" readonly=""><input id="effectivedate" type="date"></div>
+                                                      </div>
+
+                                                      <div class="row">
+                                                        <div class="col"><input class="form-control" type="text" value="Lokasi Kerja" readonly="">
+                                                            <!-- Start: Inline Dropdown --><form class="form-inline">
+                                                                                <div class="form-group">
+                                                                                  <label ></label>
+             <select  class="form-control" id="attendancelokasikerja" >
+                 <option>On Site</option>
+                 <option>WFH</option>
+                 <option>Kantor</option>
+              </select>
+                                                                                                    </div>
+                                                                                                            </form>
+                                                            <!-- End: Inline Dropdown -->
+                                                        </div>
+                                                    </div>
+
+
+                                                      <div class="row">
+                                                          <div class="col"><input class="form-control" type="text" value="Check In Time" readonly=""><input id="checkintime" type="time"></div>
+                                                          <div class="col"><input class="form-control" type="text" value="Check Out Time" readonly=""><input id="checkouttime" type="time"></div>
+                                                      </div>
+                                                      <div class="row">
+                                                          <div class="col"><input class="form-control" type="text" value="Notes" readonly=""><textarea id="attendancenote" style="min-width: 400px;min-height: 150px;"></textarea></div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="modal-footer"><button id="attendancesubmit"class="btn btn-light" data-dismiss="modal" type="button">Cancel</button><button class="btn btn-primary" type="button" onclick="submitattendance();increasependingapprovalattendance()" data-dismiss="modal">Submit</button></div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <!-- End: AXY Modal Demo Button -->
+                              </div>
+                              <div class="col offset-xl-0" style="height: 40px;"><button onclick="attendance_page();buildtableattendance()">Refresh</button></div>
+                          </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                            <table class="table table-striped">
+                                <tr  class="bg-info">
+                            <th  data-colname="createddate" data-order="desc">Created Date</th>
+                            <th  data-colname="startdate" data-order="desc">Start Date</th>
+                            <th  data-colname="checkintime" data-order="desc">Check In Time</th>
+                            <th  data-colname="checkouttime" data-order="desc">Check Out Time</th>
+                            <th  data-colname="lokasikerja" data-order="desc">Lokasi Kerja</th>
+                            <th  data-colname="note" data-order="desc">Note</th>
+                            <th  data-colname="checkouttime" data-order="desc">Status</th>
+                            <th  data-colname="checkouttime" data-order="desc"></th>
+                                                            </tr>
+                                <tbody id="attendancetable">
+                                    
+                                </tbody>
+                            </table>
+                            </div>
+                      </div>
+                  </div>
+              </div>
+              <div id="approval_attendance" class="container-fluid" style="display:none">
+                <h3 class="text-dark mb-4" id="approval_attendance_heading"></h3>
+                <div class="card shadow">
+                    <div class="card-header py-3">
+                        <div class="row">
+                           
+                        </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                          <table class="table table-striped">
+                              <tr  class="bg-info">
+                          <th  data-colname="createddate" data-order="desc">Created Date</th>
+                          <th  data-colname="startdate" data-order="desc">Start Date</th>
+                          <th  data-colname="checkintime" data-order="desc">Check In Time</th>
+                          <th  data-colname="checkouttime" data-order="desc">Check Out Time</th>
+                          <th  data-colname="lokasikerja" data-order="desc">Lokasi Kerja</th>
+                          <th  data-colname="note" data-order="desc">Note</th>
+                          <th  data-colname="checkouttime" data-order="desc">Status</th>
+                          <th  data-colname="approval" data-order="desc"></th>
+                          <th  data-colname="approval" data-order="desc"></th>
+                              </tr>
+                              <tbody id="approval_attendance_table">
+                                  
+                              </tbody>
+                          </table>
+                          </div>
+                    </div>
+                </div>
+            </div>   
+            <div id="dashboard_attendance" class="container-fluid" style="display:none">
+                <h3 class="text-dark mb-4">Dashboard Attendance</h3>
+                <div class="card shadow">
+                    <div class="card-header py-3">
+                        <div class="row">
+                            
+                        </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                        <div class="form-group">
+                            <label for="first_name"><strong>Sort By Division</strong><br>
+                                <form class="form-inline">
+                            <div class="form-group">
+
+                               <select  class="form-control" id="searchbyattendance"onchange="searchtableattendance()">
+                                   <option>control</option>
+                                   <option>energy</option>
+                                   <option>sales</option>
+                                   <option>operational</option>
+                                </select>
+                            </div>
+                          </form></label>
+                                                                          <div class="form-row">
+                                                                              <div class="col">
+                                                                                  <!-- Start: Bootstrap 4's Custom Radios & Checkboxes -->
+                                                                                  <div>
+                                                                                      <fieldset></fieldset>
+                                                                                  </div>
+                                                                                  <!-- End: Bootstrap 4's Custom Radios & Checkboxes -->
+                                                                              </div>
+                                                                              <div class="col">
+                                                                                  <!-- Start: Bootstrap 4's Custom Radios & Checkboxes -->
+                                                                                  <div>
+                                                                                      <fieldset></fieldset>
+                                                                                  </div>
+                                                                                  <!-- End: Bootstrap 4's Custom Radios & Checkboxes -->
+                                                                              </div>
+                                                                          </div>
+                                                                          <label for="first_name"><strong>Sort By Period</strong><br>
+                                                                            <form class="form-inline">
+                                                                        <div class="form-group">
+                                            
+                                                                           <select  class="form-control" id="sortbyperiodattendance">
+                                                                               <option>Januari - Februari</option>
+                                                                               <option>Februari - Maret</option>
+                                                                               <option>Maret - April</option>
+                                                                               <option>April - Mei</option>
+                                                                               <option>Mei - Juni</option>
+                                                                               <option>Juni - Juli</option>
+                                                                               <option>Juli - Agustus</option>
+                                                                               <option>Agustus - September</option>
+                                                                               <option>September - Oktober</option>
+                                                                               <option>Oktober - November</option>
+                                                                               <option>November - Desember</option>
+                                                                               <option>Desember - Januari</option>
+                                                                            </select>
+                                                                        </div>
+                                                                      </form></label>
+                                                                                                                      <div class="form-row">
+                                                                                                                          <div class="col">
+                                                                                                                              <!-- Start: Bootstrap 4's Custom Radios & Checkboxes -->
+                                                                                                                              <div>
+                                                                                                                                  <fieldset></fieldset>
+                                                                                                                              </div>
+                                                                                                                              <!-- End: Bootstrap 4's Custom Radios & Checkboxes -->
+                                                                                                                          </div>
+                                                                                                                          <div class="col">
+                                                                                                                              <!-- Start: Bootstrap 4's Custom Radios & Checkboxes -->
+                                                                                                                              <div>
+                                                                                                                                  <fieldset></fieldset>
+                                                                                                                              </div>
+                                                                                                                              <!-- End: Bootstrap 4's Custom Radios & Checkboxes -->
+                                                                                                                          </div>
+                                                                                                                      </div>
+                                                                          <div class="col offset-xl-0" style="height: 40px;"><button onclick="sortbyperiod();buildtabledashboardattendance()">Submit</button></div>
+                                                                      </div>
+                        
+                          <table class="table table-striped">
+                              <tr  class="bg-info">
+                          <th  data-colname="employeename" data-order="desc">Employee Name</th>
+                          <th  data-colname="createddate" data-order="desc">Attendance Total</th>
+                          <th  data-colname="createddate" data-order="desc">Division</th>
+                          <th  data-colname="startdate" data-order="desc">Pending Approval</th>
+                          <th  data-colname="startdate" data-order="desc">Approval Dashboard</th>
+                              </tr>
+                              <tbody id="dashboard_attendance_table">
+                                  
+                              </tbody>
+                          </table>
+                          </div>
+                    </div>
+                </div>
+            </div>   
+            <div id="approval_timeoff" class="container-fluid" style="display:none">
+                <h3 class="text-dark mb-4" id="approval_timeoff_heading"></h3>
+                <div class="card shadow">
+                    <div class="card-header py-3">
+                        <div class="row">
+                        
+                        </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                          <table class="table table-striped">
+                              <tr  class="bg-info">
+                          <th  data-colname="employeename" data-order="desc">Employee Name</th>
+                          <th  data-colname="startdate" data-order="desc">Jenis Cuti</th>
+                          <th  data-colname="createddate" data-order="desc">Created Date</th>
+                          <th  data-colname="startdate" data-order="desc">Timeoff Period</th>
+                          <th  data-colname="note" data-order="desc">Note</th>
+                          <th  data-colname="checkouttime" data-order="desc">Status</th>
+                          <th  data-colname="checkouttime" data-order="desc"></th>
+                          <th  data-colname="checkouttime" data-order="desc"></th>
+                              </tr>
+                              <tbody id="approval_timeoff_table">
+                                  
+                              </tbody>
+                          </table>
+                          </div>
+                    </div>
+                </div>
+            </div>           
+            <div id="dashboard_timeoff" class="container-fluid" style="display:none">
+                <h3 class="text-dark mb-4">Dashboard Timeoff</h3>
+                <div class="card shadow">
+                    <div class="card-header py-3">
+                        <div class="row">
+                            
+                        </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                          <table class="table table-striped">
+                              <tr  class="bg-info">
+                          <th  data-colname="employeename" data-order="desc">Employee Name</th>
+                          <th  data-colname="startdate" data-order="desc">Timeoff Left</th>
+                          <th  data-colname="createddate" data-order="desc">Pending Approval</th>
+                          <th  data-colname="createddate" data-order="desc">Approval Dashboard</th>
+                              </tr>
+                              <tbody id="dashboard_timeoff_table">
+                                  
+                              </tbody>
+                          </table>
+                          </div>
+                    </div>
+                </div>
+            </div>           
+            <div id="approval_overtime" class="container-fluid" style="display:none">
+                <h3 class="text-dark mb-4" id="approval_overtime_heading"></h3>
+                <div class="card shadow">
+                    <div class="card-header py-3">
+                        
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                          <table class="table table-striped">
+                              <tr  class="bg-info">
+                          <th  data-colname="createddate" data-order="desc">Created Date</th>
+                          <th  data-colname="startdate" data-order="desc">Effective Date</th>
+                          <th  data-colname="checkintime" data-order="desc">Check In Time</th>
+                          <th  data-colname="checkouttime" data-order="desc">Check Out Time</th>
+                          <th  data-colname="note" data-order="desc">Note</th>
+                          <th  data-colname="checkouttime" data-order="desc">Status</th>
+                              </tr>
+                              <tbody id="approval_overtime_table">
+                                  
+                              </tbody>
+                          </table>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <div id="dashboard_overtime" class="container-fluid" style="display:none">
+                <h3 class="text-dark mb-4">Dashboard Overtime</h3>
+                <div class="card shadow">
+                    <div class="card-header py-3">
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                          <table class="table table-striped">
+                              <tr  class="bg-info">
+                          <th  data-colname="employeename" data-order="desc">Employee Name</th>
+                          <th  data-colname="createddate" data-order="desc">Overtime Total</th>
+                          <th  data-colname="startdate" data-order="desc">Pending Approval</th>
+                          <th  data-colname="createddate" data-order="desc">Approval Dashboard</th>
+                              </tr>
+                              <tbody id="dashboard_overtime_table">
+                                  
+                              </tbody>
+                          </table>
+                          </div>
+                    </div>
+                </div>
+            </div>
+              <div id="timeoff" class="container-fluid" style="display:none">
+                  <h3 class="text-dark mb-4">Time Off</h3>
+                  <div class="card shadow">
+                      <div class="card-header py-3">
+                          <div class="row">
+                              <div class="col" style="height: 40px;">
+                                  <!-- Start: AXY Modal Demo Button -->
+                                  <div>
+                                      <!-- Start: Modal Button --><a class="btn btn-primary btn-sm" role="button" data-toggle="modal" href="#myModal">Request Time Off</a>
+                                      <!-- End: Modal Button -->
+                                      <div class="modal" role="dialog" tabindex="-1" id="myModal">
+                                          <div class="modal-dialog" role="document">
+                                              <div class="modal-content">
+                                                  <div class="modal-header">
+                                                      <h4>Request Time Off</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                                                  <div class="modal-body">
+                                                      <div class="row">
+                                                          <div class="col"><input class="form-control" type="text" value="Jenis Cuti" readonly="">
+                                                              <!-- Start: Inline Dropdown --><form class="form-inline">
+                                                                                  <div class="form-group">
+                                                                                    <label ></label>
+               <select  class="form-control" id="timeoffjeniscuti" >
+                   <option>Cuti Tahunan</option>
+                   <option>Cuti Sakit</option>
+                   <option>Cuti Akibat Lembur</option>
+                   <option>Cuti Menikah</option>
+                   <option>Cuti Melahirkan</option>
+                   <option>Cuti Bencana</option>
+                   <option>Cuti Berduka</option>
+                   <option>Cuti Keagamaan</option>
+                   <option>Cuti Wisuda</option>
+                </select>
+                                                                                                      </div>
+                                                                                                              </form>
+                                                              <!-- End: Inline Dropdown -->
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="modal-body"><input class="form-control" type="text" value="Start Time" readonly="">
+                                                      <div class="row">
+                                                          <div class="col">
+                                                            <div class="col"><input class="form-control" type="text" value="Start Date" readonly=""><input type="date" id="starttime"></div>
+                                                          </div>
+                                                          <div class="col">
+                                                            <div class="col"><input class="form-control" type="text" value="Days" readonly=""><input id="timeoffperiodecuti" class="form-control" type="number"></div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="modal-body">
+                                                      <div class="row"><input class="form-control" type="text" value="Notes" readonly="">
+                                                          <div class="col"><textarea style="min-width: 400px;min-height: 150px;" id="timeoffnotes"></textarea></div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="modal-footer"><button class="btn btn-light" data-dismiss="modal" type="button">Cancel</button><button class="btn btn-primary" type="button" onclick="submittimeoff();increasependingapprovaltimeoff()" data-dismiss="modal">Submit</button></div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <!-- End: AXY Modal Demo Button -->
+                              </div>
+                              <div class="col offset-xl-0" style="height: 40px;"><button onclick="timeoff_page();buildtabletimeoff();approvaltimeoff()">Refresh</button></div>
+                              <div class="col" style="height: 40px;"></div>
+                              <div class="col" style="height: 40px;"></div>
+                          </div>
+                      </div>
+                      <div class="card-body">
+                          <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                            <table class="table table-striped">
+                                <tr  class="bg-info">
+                            <th  data-colname="jeniscuti" data-order="desc">Jenis Cuti</th>
+                            <th  data-colname="createddate" data-order="desc">Created Date</th>
+                            <th  data-colname="timeoffperiode" data-order="desc">Start Time</th>
+                            <th  data-colname="notes" data-order="desc">Days</th>
+                            <th  data-colname="status" data-order="desc">Notes</th>
+                            <th  data-colname="status" data-order="desc">Status</th>
+                            <th  data-colname="status" data-order="desc"></th>
+                                </tr>
+                                <tbody id="timeofftable">
+                                    
+                                </tbody>
+                            </table>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div id="overtime" class="container-fluid" style="display:none">
+                  <h3 class="text-dark mb-4">Overtime</h3>
+                  <div class="card shadow">
+                      <div class="card-header py-3">
+                          <div class="row">
+                              <div class="col" style="height: 40px;">
+                                  <!-- Start: AXY Modal Demo Button -->
+                                  <div>
+                                      <!-- Start: Modal Button --><a class="btn btn-primary btn-sm" role="button" data-toggle="modal" href="#myModalb">Request Overtime</a>
+                                      <!-- End: Modal Button -->
+                                      <div class="modal" role="dialog" tabindex="-1" id="myModalb">
+                                          <div class="modal-dialog" role="document">
+                                              <div class="modal-content">
+                                                  <div class="modal-header">
+                                                      <h4>Request Overtime</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                                                  <div class="modal-body">
+                                                      <div class="row">
+                                                          <div class="col"><input class="form-control" type="text" value="Overtime Date" readonly=""><input type="date" id="overtimedate"></div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="modal-body">
+                                                      <div class="row">
+                                                          <div class="col"><input class="form-control" type="text" value="Start Time" readonly=""><input type="time" id="overtimestarttime"></div>
+                                                          <div class="col"><input class="form-control" type="text" value="End Time" readonly=""><input type="time" id="overtimeendtime"></div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="modal-body">
+                                                      <div class="row">
+                                                          <div class="col"><input class="form-control" type="text" value="Notes" readonly=""><textarea style="min-width: 400px;min-height: 150px;" id="overtimenote"></textarea></div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="modal-footer"><button class="btn btn-light" data-dismiss="modal" type="button">Cancel</button><button class="btn btn-primary" type="button" onclick="submitovertime();increasependingapprovalovertime()"data-dismiss="modal">Submit</button></div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <!-- End: AXY Modal Demo Button -->
+                              </div>
+                              <div class="col offset-xl-0" style="height: 40px;"><button onclick="overtime_page();buildtableovertime();approvalovertime()">Refresh</button></div>
+                              <div class="col" style="height: 40px;"></div>
+                              <div class="col" style="height: 40px;"></div>
+                          </div>
+                      </div>
+                      <div class="card-body">
+                          <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                            <table class="table table-striped">
+                                <tr  class="bg-info">
+                            <th  data-colname="createdtime" data-order="desc">Created Time</th>
+                            <th  data-colname="overtimedate" data-order="desc">Overtime Date</th>
+                            <th  data-colname="starttime" data-order="desc">Start Time</th>
+                            <th  data-colname="endtime" data-order="desc">End Time</th>
+                            <th  data-colname="notes" data-order="desc">Notes</th>
+                            <th  data-colname="status" data-order="desc">Status</th>
+                            
+                                </tr>
+                                <tbody id="overtimetable">
+                                    
+                                </tbody>
+                            </table>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              
+              <div class="container-fluid" id="profile" style="display:none">
+                <h3 class="text-dark mb-4">Profile</h3>
+                <div class="row mb-3">
+
+                      <div class="col-lg-4">
+                          <div class="card mb-3">
+                              <div class="card-body text-center shadow"><img id ="pasfoto1" class="rounded-circle mb-3 mt-4" width="160" height="160">
+                                  <div class="mb-3">
+                                    <input type="file" id="image" accept="image/*"><br><br>
+                                    <button type="button" onclick="upload123()">Upload</button>
+                                </div>
+                              </div>
+                          </div>
+                          <div class="card shadow mb-4"></div>
+                      </div>
+                    <div class="col-lg-8">
+                        <div class="row mb-3 d-none">
+                            <div class="col">
+                                <div class="card text-white bg-primary shadow">
+                                    <div class="card-body">
+                                        <div class="row mb-2">
+                                            <div class="col">
+                                                <p class="m-0">Peformance</p>
+                                                <p class="m-0"><strong>65.2%</strong></p>
+                                            </div>
+                                            <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
+                                        </div>
+                                        <p class="text-white-50 small m-0"><i class="fas fa-arrow-up"></i>&nbsp;5% since last month</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card text-white bg-success shadow">
+                                    <div class="card-body">
+                                        <div class="row mb-2">
+                                            <div class="col">
+                                                <p class="m-0">Peformance</p>
+                                                <p class="m-0"><strong>65.2%</strong></p>
+                                            </div>
+                                            <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
+                                        </div>
+                                        <p class="text-white-50 small m-0"><i class="fas fa-arrow-up"></i>&nbsp;5% since last month</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="card shadow mb-3">
+                                    <div class="card-header py-3">
+                                        <p class="text-primary m-0 font-weight-bold">Personal Data</p>
+                                    </div>
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="form-row">
+                                                <div class="col" style="height: 80px;">
+                                                    <div class="form-group" style="margin: 0px 0px 0px;"><label for="username"><strong>Nomor Karyawan</strong><input class="form-control" type="text" id="sn"  ></label></div>
+                                                </div>
+                                                <div class="col" style="height: 80px;">
+                                                    <div class="form-group" style="margin: 0px 0px 0px;"><label for="email"><strong>Email Address</strong><input class="form-control" type="text" id="email"  ></label></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <div class="form-group" style="height: 80px;"><label for="first_name" style="margin: 0px 0px 0px;"><strong>Employee Name</strong><br><input class="form-control" type="text" id="employeename"  ></label></div>
+                                                    <div
+                                                        class="form-group" style="height: 80px;"><label for="first_name" style="margin: 0px 0px 0px;"><strong>No KTP</strong><input class="form-control" type="text" id="ktp"  ></label></div>
+                                                <div class="form-group"
+                                                    style="height: 80px;"><label for="first_name" style="margin: 0px 0px 0px;"><strong>No KK</strong><input class="form-control" type="text" id="kk"  ></label></div>
+                                                <div class="form-group" style="height: 80px;"><label for="first_name" style="margin: 0px 0px 0px;"><strong>No HP</strong><br><input class="form-control" type="text" id="hp"  ></label></div>
+                                                <div class="form-group"><label for="last_name"><strong>Lokasi Pendidikan Terakhir</strong><input class="form-control" type="text" id="universitasterakhir"  ></label></div>
+                                                <div class="form-group"><label for="first_name"><strong>Gender</strong><br><input class="form-control" type="text" id="jeniskelamin"  ></label></div>
+                                                <div class="form-group"><label for="first_name"><strong>Golongan Darah</strong><br><input class="form-control" type="text" id="golongandarah"  ></label>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group" style="height: 80px;"><label for="last_name" style="margin: 0px 0px 0px;"><strong>Alamat</strong><br><input class="form-control" type="text" id="alamat"  ></label></div>
+                                                <div class="form-group"
+                                                    style="height: 80px;"><label for="last_name" style="margin: 0px 0px 0px;"><strong>Tempat Lahir</strong><input class="form-control" type="text"  ></label></div>
+                                                <div class="form-group"><label for="last_name"><strong>Jurusan</strong><input class="form-control" type="text" id="tempatlahir"  ></label></div>
+                                                <div class="form-group"><label for="last_name"><strong>Level Pendidikan</strong><input class="form-control" type="text" id="level_"  ></label></div>
+                                                <div class="form-group"><label for="last_name"><strong>Tier</strong><input class="form-control" type="text" id="tier"  ></label></div>
+                                                <div class="form-group"><label for="last_name"><strong>Status Pernikahan</strong><input class="form-control" type="text" id="statuspernikahan"  ></label>
+                                                    <div class="form-row">
+                                                        <div class="col">
+                                                            <!-- Start: Bootstrap 4's Custom Radios & Checkboxes -->
+                                                            <div>
+                                                                <fieldset></fieldset>
+                                                            </div>
+                                                            <!-- End: Bootstrap 4's Custom Radios & Checkboxes -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group"><label for="last_name"><strong>Status K2</strong><input class="form-control" type="text" id="status2"  ></label>
+                                                    <div class="form-row">
+                                                        <div class="col">
+                                                            <!-- Start: Bootstrap 4's Custom Radios & Checkboxes -->
+                                                            <div>
+                                                                <fieldset></fieldset>
+                                                            </div>
+                                                            <!-- End: Bootstrap 4's Custom Radios & Checkboxes -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="card shadow">
+                                <div class="card-header py-3">
+                                    <p class="text-primary m-0 font-weight-bold">Company Detail</p>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="form-row">
+                                            <div class="col">
+                                                <div class="form-group"><label for="country"><strong>Division</strong><input class="form-control" type="text" id="division"  ></label></div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group"><label for="country"><strong>Job Position</strong><input class="form-control" type="text" id="position"  ></label></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col">
+                                                <div class="form-group"><label for="city"><strong>Fungsi</strong><br><input class="form-control" type="text" id="fungsi"  ></label></div>
+                                                <div class="form-group"><label for="city"><strong>Job Level</strong><input class="form-control" type="text" id="level"  ></label></div>
+                                                <div class="form-group"><label for="city"><strong>Join Date</strong><input class="form-control" type="text" id="joindate"  ></label></div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group"><label for="country"><strong>Employment Status</strong><input class="form-control" type="text" id="employmentstatus"  ></label></div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="card shadow">
+                                <div class="card-header py-3">
+                                    <p class="text-primary m-0 font-weight-bold">Payroll</p>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="form-row">
+                                            <div class="col">
+                                                <div class="form-group"><label for="city"><strong>Approval Line</strong><input class="form-control" type="text" id="approvalline"  ></label></div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group"><label for="country"><strong>Basic Salary</strong><br><input class="form-control" type="text" id="basicsalary"  ></label></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col">
+                                                <div class="form-group"><label for="city"><strong>NPWP</strong><input class="form-control" type="text" id="npwp"  ></label></div>
+                                                <div class="form-group"><label for="city"><strong>No Rekening</strong><input class="form-control" type="text" id="rekening"  ></label></div>
+                                                <div class="form-group"><label for="city"><strong>BPJS Ketenagakerjaan</strong><input class="form-control" type="text" id="bpjstk"  ></label></div>
+                                                <div class="form-group"><label for="city"><strong>Overtime</strong><br><input class="form-control" type="text" id="overtime"  ></label></div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group"><label for="country"><strong>Nama Rekening</strong><br><input class="form-control" type="text" id="namarekening"  ></label></div>
+                                                <div class="form-group"><label for="country"><strong>Nama Bank</strong><br><input class="form-control" type="text" id="namabank"  ></label></div>
+                                                <div class="form-group"><label for="country"><strong>BPJS Kesehatan</strong><br><input class="form-control" type="text" id="bpjskes"  ></label></div><button class="btn btn-primary" type="button"
+                                                    style="margin-top: 40px;">Edit</button></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow mb-5"></div>
+            </div>
+        
+              <div class="container-fluid" id="registeremployee" style="display:none">
+                <h3 class="text-dark mb-4">Register New Employee</h3>
+                <div class="row mb-3">
+                    <div class="col-lg-4">
+                        <div class="card mb-3">
+                            <div class="card-body text-center shadow"><img class="rounded-circle mb-3 mt-4" width="160" height="160" src="/assets/img/profilepictureicon.jpg?h=b86dff19bd6fae3b80fd431b642c7e51">
+                                <div class="mb-3"><button class="btn btn-primary btn-sm" type="button">Change Photo</button></div>
+                            </div>
+                        </div>
+                        <div class="card shadow mb-4"></div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="row mb-3 d-none">
+                            <div class="col">
+                                <div class="card text-white bg-primary shadow">
+                                    <div class="card-body">
+                                        <div class="row mb-2">
+                                            <div class="col">
+                                                <p class="m-0">Peformance</p>
+                                                <p class="m-0"><strong>65.2%</strong></p>
+                                            </div>
+                                            <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
+                                        </div>
+                                        <p class="text-white-50 small m-0"><i class="fas fa-arrow-up"></i>&nbsp;5% since last month</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card text-white bg-success shadow">
+                                    <div class="card-body">
+                                        <div class="row mb-2">
+                                            <div class="col">
+                                                <p class="m-0">Peformance</p>
+                                                <p class="m-0"><strong>65.2%</strong></p>
+                                            </div>
+                                            <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
+                                        </div>
+                                        <p class="text-white-50 small m-0"><i class="fas fa-arrow-up"></i>&nbsp;5% since last month</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="card shadow mb-3">
+                                    <div class="card-header py-3">
+                                        <p class="text-primary m-0 font-weight-bold">Personal Data</p>
+                                    </div>
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="form-row">
+                                                <div class="col" style="height: 80px;">
+                                                    <div class="form-group" style="margin: 0px 0px 0px;"><label for="username"><strong>Nomor Karyawan</strong></label></div><input class="form-control" type="number" id="SN" ></div>
+                                                <div class="col" style="height: 80px;">
+                                                    <div class="form-group" style="margin: 0px 0px 0px;"><label for="email"><strong>Email Address</strong></label></div><input class="form-control" type="email" id="EMAIL"></div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <div class="form-group" style="height: 80px;"><label for="first_name" style="margin: 0px 0px 0px;"><strong>Employee Name</strong><br></label><input class="form-control" type="text" id="EMPLOYEENAME" style="padding: 0px 0px;"></div>
+                                                    <div class="form-group"
+                                                        style="height: 80px;"><label for="first_name" style="margin: 0px 0px 0px;"><strong>No KTP</strong></label><input class="form-control" type="number" id="KTP"></div>
+                                                    <div class="form-group" style="height: 80px;"><label for="first_name" style="margin: 0px 0px 0px;"><strong>No KK</strong></label><input class="form-control" type="number" id="KK"></div>
+                                                    <div class="form-group" style="height: 80px;"><label for="first_name" style="margin: 0px 0px 0px;"><strong>No HP</strong><br></label><input class="form-control" type="number" id="HP"></div>
+                                                    <div class="form-group"><label for="last_name"><strong>Lokasi Pendidikan Terakhir</strong></label><input class="form-control" type="text" id="UNIVERSITASTERAKHIR"></div>
+                                                    <div class="form-group"><label for="first_name"><strong>Gender</strong><br><form class="form-inline">
+          <div class="form-group">
+            <label ></label>
+             <select  class="form-control" id="GENDER">
+                 <option>Laki-Laki</option>
+                 <option>Perempuan</option>
+              </select>
+          </div>
+        </form></label></div>
+                                                    <div class="form-group"><label for="first_name"><strong>Golongan Darah</strong><br><form class="form-inline">
+          <div class="form-group">
+            <label ></label>
+             <select  class="form-control" id="GOLONGANDARAH">
+                 <option>A</option>
+                 <option>B</option>
+                 <option>AB</option>
+                 <option>O</option>
+              </select>
+          </div>
+        </form></label>
+                                                        <div class="form-row">
+                                                            <div class="col">
+                                                                <!-- Start: Bootstrap 4's Custom Radios & Checkboxes -->
+                                                                <div>
+                                                                    <fieldset></fieldset>
+                                                                </div>
+                                                                <!-- End: Bootstrap 4's Custom Radios & Checkboxes -->
+                                                            </div>
+                                                            <div class="col">
+                                                                <!-- Start: Bootstrap 4's Custom Radios & Checkboxes -->
+                                                                <div>
+                                                                    <fieldset></fieldset>
+                                                                </div>
+                                                                <!-- End: Bootstrap 4's Custom Radios & Checkboxes -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group"><label for="last_name"><strong>Agama</strong><form class="form-inline">
+          <div class="form-group">
+            <label ></label>
+             <select  class="form-control" id="AGAMA">
+                 <option>Katolik</option>
+                 <option>Islam</option>
+                 <option>Buddha</option>
+                 <option>Hindu</option>
+              </select>
+          </div>
+        </form></label></div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group" style="height: 80px;"><label for="last_name" style="margin: 0px 0px 0px;"><strong>Alamat</strong><br></label><input class="form-control" type="text" id="alamat" style="padding: 0px 0px;"></div>
+                                                    <div class="form-group" style="height: 80px;"><label for="last_name" style="margin: 0px 0px 0px;"><strong>Tempat Lahir</strong></label><input class="form-control" type="text" id="tempatlahir"></div>
+                                                    <div class="form-group"><label for="last_name"><strong>Jurusan</strong></label><input class="form-control" type="text" id="jurusan"></div>
+                                                    <div class="form-group"><label for="last_name"><strong>Level Pendidikan</strong></label>
+                                                        <!-- Start: Inline Dropdown --><form class="form-inline">
+          <div class="form-group">
+            <label ></label>
+             <select  class="form-control" id="LEVELPENDIDIKAN">
+                 <option>SMK</option>
+                 <option>D3</option>
+                 <option>S1</option>
+                 <option>S2</option>
+              </select>
+          </div>
+        </form>
+                                                        <!-- End: Inline Dropdown -->
+                                                    </div>
+                                                    <div class="form-group"><label for="last_name"><strong>Tier</strong></label>
+                                                        <!-- Start: Inline Dropdown --><form class="form-inline">
+          <div class="form-group">
+            <label ></label>
+             <select  class="form-control" id="TIER">
+                 <option>1</option>
+                 <option>2</option>
+                 <option>3</option>
+              </select>
+          </div>
+        </form>
+                                                        <!-- End: Inline Dropdown -->
+                                                    </div>
+                                                    <div class="form-group"><label for="last_name"><strong>Status Pernikahan</strong></label>
+                                                        <div class="form-row">
+                                                            <div class="col">
+                                                                <!-- Start: Bootstrap 4's Custom Radios & Checkboxes -->
+                                                                <div>
+                                                                    <fieldset></fieldset>
+                                                                </div>
+                                                                <!-- End: Bootstrap 4's Custom Radios & Checkboxes -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- Start: Inline Dropdown --><form class="form-inline">
+          <div class="form-group">
+            <label ></label>
+             <select  class="form-control" id="STATUSPERNIKAHAN">
+                 <option>Belum Menikah</option>
+                 <option>Menikah</option>
+              </select>
+          </div>
+        </form>
+                                                        <!-- End: Inline Dropdown -->
+                                                    </div>
+                                                    <div class="form-group"><label for="last_name"><strong>Status K2</strong></label>
+                                                        <div class="form-row">
+                                                            <div class="col">
+                                                                <!-- Start: Bootstrap 4's Custom Radios & Checkboxes -->
+                                                                <div>
+                                                                    <fieldset></fieldset>
+                                                                </div>
+                                                                <!-- End: Bootstrap 4's Custom Radios & Checkboxes -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- Start: Inline Dropdown --><form class="form-inline">
+          <div class="form-group">
+            <label ></label>
+             <select  class="form-control" id="STATUSK2">
+                 <option>TK</option>
+                 <option>K0</option>
+                 <option>K1</option>
+                 <option>K2</option>
+              </select>
+          </div>
+        </form>
+                                                        <!-- End: Inline Dropdown -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="card shadow">
+                                    <div class="card-header py-3">
+                                        <p class="text-primary m-0 font-weight-bold">Company Detail</p>
+                                    </div>
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <div class="form-group" style="max-width: 10px;height: 10;max-height: 10px;min-height: 5px;"><label for="city"><strong>Division</strong><form class="form-inline">
+          <div class="form-group">
+            <label ></label>
+             <select  class="form-control" id="DIVISION">
+                 <option>AUTOMATION</option>
+                 <option>ENERGY</option>
+                 <option>MARKETING_SALES</option>
+                 <option>OPERATIONS</option>
+              </select>
+          </div>
+        </form></label></div>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend"></div>
+                                                        <div class="input-group-append"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group"><label for="country"><strong>Job Position</strong><input class="form-control" type="text" id="POSITION" style="padding: 0px 0px;"></label></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <div class="form-group"><label for="city"><strong>Fungsi</strong><br><input class="form-control" type="text" id="FUNGSI" style="padding: 0px 0px;"></label></div>
+                                                    <div class="form-group"><label for="city"><strong>Job Level</strong><input class="form-control" type="text" id="LEVEL" style="padding: 0px 0px;"></label></div>
+                                                    <div class="form-group"><label for="city"><strong>Join Date</strong><input class="form-control" type="date"id="JOINDATE"></label></div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group"><label for="country"><strong>Employment Status</strong><form class="form-inline">
+          <div class="form-group">
+            <label ></label>
+             <select  class="form-control" id="EMPLOYEMENTSTATUS">
+                 <option>Probation</option>
+                 <option>Freelance</option>
+                 <option>Permanent</option>
+              </select>
+          </div>
+        </form></label></div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="card shadow">
+                                    <div class="card-header py-3">
+                                        <p class="text-primary m-0 font-weight-bold">Payroll</p>
+                                    </div>
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <div class="form-group"><label for="city"><strong>Approval Line</strong><form class="form-inline">
+          <div class="form-group">
+            <label ></label>
+             <select  class="form-control" id="APPROVALLINE">
+                 <option>CONTROL</option>
+                 <option>ENERGY</option>
+                 <option>OPERATIONAL</option>
+                 <option>SALES</option>
+              </select>
+          </div>
+        </form></label></div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group"><label for="country"><strong>Basic Salary</strong><br><input class="form-control" type="number" id="BASICSALARY"></label></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <div class="form-group"><label for="city"><strong>NPWP</strong></label><input class="form-control" type="number" id="NPWP"></div>
+                                                    <div class="form-group"><label for="city"><strong>No Rekening</strong></label><input class="form-control" type="number" id="REKENING"></div>
+                                                    <div class="form-group"><label for="city"><strong>BPJS Ketenagakerjaan</strong></label><input class="form-control" type="number" id="BPJSTK"></div>
+                                                    <div class="form-group"><label for="city"><strong>Overtime</strong><br></label>
+                                                        <!-- Start: Inline Dropdown --><form class="form-inline">
+          <div class="form-group">
+            <label ></label>
+             <select  class="form-control" id="OVERTIME">
+                 <option>Eligible</option>
+                 <option>Not Eligible</option>
+              </select>
+          </div>
+        </form>
+                                                        <!-- End: Inline Dropdown -->
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group"><label for="country"><strong>Nama Rekening</strong><br></label><input class="form-control" type="text" id="NAMAREKENING"></div>
+                                                    <div class="form-group"><label for="country"><strong>Nama Bank</strong><br></label>
+                                                        <!-- Start: Inline Dropdown --><form class="form-inline">
+          <div class="form-group">
+            <label ></label>
+             <select  class="form-control" id="NAMABANK">
+                 <option>Bank BNI</option>
+                 <option>Bank BCA</option>
+                 <option>Bank Mandiri</option>
+                 <option>Bank BRI</option>
+                 <option>Bank Niaga</option>
+              </select>
+          </div>
+        </form>
+                                                        <!-- End: Inline Dropdown -->
+                                                    </div>
+                                                    <div class="form-group"><label for="country"><strong>BPJS Kesehatan</strong><br></label><input class="form-control" type="number" id="BPJSKES"></div><button class="btn btn-primary" type="button" style="margin-top: 40px;">Submit</button></div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card shadow mb-5"></div>
+            </div>
+            
+            </div>
+          </div>
+        <footer class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Developed By IASH © 2020</span></div>
+            </div>
+        </footer>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+
+
+
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-storage.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAwxgLUZYxNlK8fZ8GTfdBGHMx-1ogPaFk",
+      authDomain: "syntek-portal.firebaseapp.com",
+      databaseURL: "https://syntek-portal.firebaseio.com",
+      projectId: "syntek-portal",
+      storageBucket: "syntek-portal.appspot.com",
+      messagingSenderId: "281289789288",
+      appId: "1:281289789288:web:94b8c3d9e99d54815e50dd",
+      measurementId: "G-740EK9Y9JN"
+
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script src="index.js"></script>
+  <script src="table.js"></script>
+  <script src="upload.js"></script>
+  <script src="attendance.js"></script>
+  <script src="overtime.js"></script>
+  <script src="timeoff.js"></script>
+  <script src="postgre.js"></script>
+  <script src="approvalattendance.js"></script>
+  <script src="approvaltimeoff.js"></script>
+  <script src="approvalovertime.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+  <script src="/assets/js/script.min.js?h=65f2237e409e6aeaf6a112428874f6d2"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+</body>
+</html>
